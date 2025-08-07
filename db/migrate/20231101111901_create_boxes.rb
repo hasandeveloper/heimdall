@@ -5,7 +5,7 @@ class CreateBoxes < ActiveRecord::Migration[6.1]
       t.string :os_image
       t.string :family_type
       t.string :disk
-      t.integer :account_id
+      t.integer :aws_account_id
       t.integer :aws_vpc_id
 
       t.timestamps

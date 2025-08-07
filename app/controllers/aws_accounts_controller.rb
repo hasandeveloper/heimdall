@@ -1,4 +1,4 @@
-class AccountsController < ApplicationController
+class AwsAccountsController < ApplicationController
   before_action :set_account, only: %i[ show update destroy ]
 
   # GET /accounts

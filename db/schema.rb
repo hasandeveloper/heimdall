@@ -15,11 +15,9 @@ ActiveRecord::Schema.define(version: 2024_01_12_021230) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "accounts", force: :cascade do |t|
-    t.string "email"
-    t.string "subdomain"
-    t.string "password"
-    t.boolean "is_active"
+  create_table "aws_accounts", force: :cascade do |t|
+    t.string "aws_key"
+    t.string "aws_secret"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -63,7 +61,7 @@ ActiveRecord::Schema.define(version: 2024_01_12_021230) do
     t.string "name"
     t.text "ipv4_cidr_block"
     t.string "tenancy"
-    t.integer "account_id"
+    t.integer "aws_account_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -73,7 +71,7 @@ ActiveRecord::Schema.define(version: 2024_01_12_021230) do
     t.string "os_image"
     t.string "family_type"
     t.string "disk"
-    t.integer "account_id"
+    t.integer "aws_account_id"
     t.integer "aws_vpc_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

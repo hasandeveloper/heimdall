@@ -20,11 +20,9 @@
   
   # AwsRegion.first.destroy
   
-  acc = Account.create do |acc|
-    acc.email = "admin@gmail.com"
-    acc.subdomain = "test"
-    acc.is_active = false
-    acc.password = "1234"
+  acc = AwsAccount.create do |acc|
+    acc.aws_key = "dfadas"
+    acc.aws_secret = "dfadas"
   end
   
   # Account.first.destroy
@@ -33,7 +31,7 @@
     aws_vpc.name = "Default"
     aws_vpc.ipv4_cidr_block = "10.0.0.0/16"
     aws_vpc.tenancy = "Default"
-    aws_vpc.account_id = acc.id
+    aws_vpc.aws_account_id = acc.id
   end
   
   # AwsVpc.first.destroy
@@ -43,7 +41,7 @@
     box.os_image = "Ubuntu"
     box.family_type = "t3"
     box.disk = "123gb"
-    box.account_id = acc.id
+    box.aws_account_id = acc.id
     box.aws_vpc_id = aws_vpc.id
   end
   

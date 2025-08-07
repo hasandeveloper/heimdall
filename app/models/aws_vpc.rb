@@ -1,5 +1,5 @@
 class AwsVpc < ApplicationRecord
-  belongs_to :account
+  belongs_to :aws_account
   has_many :boxes
   has_one :aws_data_center
   has_one :aws_region, through: :aws_data_center
