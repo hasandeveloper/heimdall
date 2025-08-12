@@ -4,4 +4,5 @@ class User < ApplicationRecord
          :registerable,
          jwt_revocation_strategy: JwtDenylist
   has_one :aws_account
+  has_and_belongs_to_many :cloud_providers
 end

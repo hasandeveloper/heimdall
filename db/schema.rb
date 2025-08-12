@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2024_01_12_021230) do
+ActiveRecord::Schema.define(version: 2025_08_07_063118) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -82,6 +82,13 @@ ActiveRecord::Schema.define(version: 2024_01_12_021230) do
     t.text "avatar"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "cloud_providers_users", id: false, force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "cloud_provider_id", null: false
+    t.index ["cloud_provider_id", "user_id"], name: "index_cloud_providers_users_on_cloud_provider_id_and_user_id"
+    t.index ["user_id", "cloud_provider_id"], name: "index_cloud_providers_users_on_user_id_and_cloud_provider_id"
   end
 
   create_table "jwt_denylist", force: :cascade do |t|
