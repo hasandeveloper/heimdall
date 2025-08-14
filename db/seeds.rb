@@ -73,10 +73,4 @@
     u.email = "hasan@email.com"
     u.password = "secret123"
   end
-
-
-
-
-  # Write a Rails scope to get all active users who logged in within the last 7 days.
- 
-  # default_scope: ->{where('active ? AND logged_in ?', true  Date.now - 7)}
+  
