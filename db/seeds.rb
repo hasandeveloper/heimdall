@@ -8,8 +8,13 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 
+user = User.create do |u|
+  u.email = "hasan@email.com"
+  u.password = "secret123"
+end
+
 %w(AWS, GCP, DO).each do |cloud_name|
-    CloudProvider.create(name: cloud_name)
+    CloudProvider.create(name: cloud_name, user_id: user.id)
   end
   
   # CloudProvider.first.destroy
@@ -23,6 +28,7 @@
   acc = AwsAccount.create do |acc|
     acc.aws_key = "dfadas"
     acc.aws_secret = "dfadas"
+    acc.cloud_provider_id = CloudProvider.first.id
   end
   
   # Account.first.destroy
@@ -69,8 +75,3 @@
   
   #AwsOptedAvailabilityZone.first.destroy
 
-  user = User.create do |u|
-    u.email = "hasan@email.com"
-    u.password = "secret123"
-  end
-  

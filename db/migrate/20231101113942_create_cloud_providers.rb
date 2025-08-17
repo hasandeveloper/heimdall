@@ -3,7 +3,7 @@ class CreateCloudProviders < ActiveRecord::Migration[6.1]
     create_table :cloud_providers do |t|
       t.string :name
       t.text :avatar
-
+      t.integer :user_id
       t.timestamps
     end
   end
