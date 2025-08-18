@@ -81,7 +81,6 @@ ActiveRecord::Schema.define(version: 2025_08_07_063118) do
   create_table "cloud_providers", force: :cascade do |t|
     t.string "name"
     t.text "avatar"
-    t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

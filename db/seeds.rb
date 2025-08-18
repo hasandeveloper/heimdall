@@ -14,9 +14,10 @@ user = User.create do |u|
 end
 
 %w(AWS, GCP, DO).each do |cloud_name|
-    CloudProvider.create(name: cloud_name, user_id: user.id)
+    CloudProvider.create(name: cloud_name)
   end
   
+  user.cloud_providers << CloudProvider.first
   # CloudProvider.first.destroy
   
   aws_region = AwsRegion.create do |aws_region|
